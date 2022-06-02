@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CatServiceImpl implements CatService{
@@ -31,11 +32,14 @@ public class CatServiceImpl implements CatService{
 
     @Override
     public String removeCatDetails(Integer id) {
-        return null;
+        Cat cat = catRepository.findById(id).get();
+        catRepository.delete(cat);
+        return "the cat has been removed from the cat list";
     }
 
     @Override
     public Cat findCatById(Integer id) {
-        return null;
+        Optional<Cat> result = catRepository.findById(id);
+        return result.orElse(null);
     }
 }
