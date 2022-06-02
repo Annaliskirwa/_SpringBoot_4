@@ -1,20 +1,24 @@
 package com.annalis.sample.api.service;
 
 import com.annalis.sample.api.domain.Cat;
+import com.annalis.sample.api.repository.CatRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class CatServiceImpl implements CatService{
+    @Autowired
+    private CatRepository catRepository;
     @Override
     public List<Cat> getAllCats() {
-        return null;
+        return catRepository.findAll();
     }
 
     @Override
     public Cat registerCat(Cat cat) {
-        return null;
+        return catRepository.save(cat);
     }
 
     @Override
