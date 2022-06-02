@@ -22,8 +22,11 @@ public class CatServiceImpl implements CatService{
     }
 
     @Override
-    public Cat updateCatDetails(Cat cat, Integer id) {
-        return null;
+    public Cat updateCatDetails(Cat updateCat, Integer id) {
+        Cat cat = catRepository.findById(id).get();
+        cat.setName(updateCat.getName());
+        cat.setAge(updateCat.getAge());
+        return catRepository.save(cat);
     }
 
     @Override
