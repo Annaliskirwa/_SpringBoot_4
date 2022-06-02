@@ -1,10 +1,26 @@
 package com.annalis.sample.api.domain;
 
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "CAT")
+@Data
+@NoArgsConstructor
 public class Cat {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "catName", nullable = false)
     private String name;
+    @Column(name = "catGender", nullable = false)
     private String gender;
+    @Column(name = "catAge", nullable = false)
     private Integer age;
+    @Column(name = "catColor", nullable = false)
     private String color;
 
     public Integer getId() {
