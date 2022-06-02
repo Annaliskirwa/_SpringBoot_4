@@ -1,10 +1,19 @@
 package com.annalis.sample.api.domain;
 
 public class Cat {
+    private Integer id;
     private String name;
     private String gender;
     private Integer age;
     private String color;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -41,7 +50,8 @@ public class Cat {
     @Override
     public String toString() {
         return "Cat{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
                 ", age=" + age +
                 ", color='" + color + '\'' +
